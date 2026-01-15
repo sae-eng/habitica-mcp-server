@@ -33,6 +33,7 @@ const habiticaClient = axios.create({
   headers: {
     'x-api-user': HABITICA_USER_ID,
     'x-api-key': HABITICA_API_TOKEN,
+    'x-client': `${HABITICA_USER_ID}-habitica-mcp-server`,
     'Content-Type': 'application/json',
   },
 });
@@ -41,7 +42,7 @@ const habiticaClient = axios.create({
 const server = new Server(
   {
     name: 'habitica-mcp-server',
-    version: '0.0.1',
+    version: '0.0.2',
   },
   {
     capabilities: {
@@ -962,4 +963,4 @@ async function runServer() {
 runServer().catch((error) => {
   console.error('服务器启动失败:', error);
   process.exit(1);
-}); 
+});
